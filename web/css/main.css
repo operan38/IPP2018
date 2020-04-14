@@ -1,0 +1,1115 @@
+*
+{
+	margin: 0;
+	padding: 0;
+}
+
+html,body 
+{
+	width: 100%;
+	height: 100%;
+}
+
+a
+{
+	text-decoration: none;
+}
+
+#wrapper
+{
+	display: table;
+	width: 100%;
+	height: 100%;
+	font-family: arial;
+}
+
+#header
+{
+	height: 212px;
+	background: #2b4e84;
+	color: #fff;
+	display: table-row;
+}
+
+#user_menu
+{
+	width: 100%;
+	display: block;
+	background: #3e65a0;
+	height: 48px;
+	z-index: 20;
+	position: fixed;
+}
+
+#user_menu>p
+{
+	float: right;
+	margin-top: 15px;
+	margin-right: 10px;
+	font: normal 12pt arial;
+}
+
+.user_button  /* Кнопки входа, выхода и регистрации*/
+{
+	display: block;
+	color: #fff;
+	padding-left: 10px;
+	padding-right: 10px;
+	height: 30px;
+	margin-top: 4px;
+	margin-right: 5px;
+  	padding-top: 11px;
+	text-align: center;
+	background: #2B2A29;
+	float: right;
+	font: bold 12pt arial;
+	border-radius: 10px;
+	transition: background-color 0.2s linear;
+}
+
+.user_button:hover
+{
+	background-color: #383635;
+	cursor: pointer;
+}
+
+.require_field
+{
+	color: #FF0000;
+}
+
+#auth_form
+{
+	color: #000;
+	border: 2px solid #3e65a0;
+	display: none;
+	position: fixed;
+	background: #FEFEFE;
+	width: 190px;
+	height: 115px;
+	font-size: 13pt;
+	padding: 20px 0 50px 0;
+	border-radius: 6px;
+	top: 50px;
+	right: 0;
+}
+
+#auth_form input
+{
+	width: 160px;
+	height: 18px;
+	font-size: 12pt;
+	margin: 2px 0 10px 0;
+}
+
+#auth_form input#auth_login, #auth_form input#auth_password
+{
+	outline: none;
+	margin-left: 10px;
+	border-radius: 3px;
+}
+
+#auth_form p.auth_text
+{
+	position: static;
+	font-size: 12pt;
+	margin-left: 10px;
+	float: left;
+}
+
+#auth_form input[type="submit"]
+{
+	font-size: 11pt;
+	width: 70px;
+	height: 30px;
+	margin: 5px 0 10px 11px;
+	outline: none;
+	border-width: 0;
+	background: #3e65a0;
+	color: #fff;
+	cursor: pointer;
+	transition: 2s cubic-bezier(.165, .84, .44, 1);
+}
+
+#auth_form input[type="submit"]:hover
+{
+	background: #1962A2;
+	box-shadow: inset 0 0 0 1px #3e65a0;
+}
+
+#auth_form.active
+{
+	display: block;
+}
+
+#auth_load
+{
+	display: none;
+	margin-left: 10px;
+}
+
+.auth_message
+{
+	font-size: 11pt;
+	color: #FF0A0A;
+	margin: 0 0 5px 10px;
+	text-decoration: underline;
+}
+
+#auth_button.active
+{
+	background: #4b7fcd;
+	transition: .3s ease;
+}
+
+#header_main
+{
+	margin: 0 auto;
+	padding: 50px 0 22px 0;
+	max-width: 1140px;
+}
+
+#header_main>p
+{
+	margin-top: 5px;
+	font-size: 18pt;
+	text-align: center;
+	font-family: Tahoma, arial, 'Century Gothic';
+}
+
+.logo 
+{
+	display: block;
+	background: url(../images/logo_mgtu.png) no-repeat;
+	float: left;
+	width: 81px;
+	height: 114px;
+	margin-top: 5px;
+}
+
+#header_menu>ul
+{
+	text-align: center;
+	background: #302f2f;
+}
+
+#header_menu li
+{
+	display: inline-block;
+}
+
+#header_menu a
+{
+	color: #fff;
+	text-transform: uppercase;
+	display: block;
+	background: #302f2f;
+	height: 28px;
+	padding-top: 12px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font: bold 10pt arial;
+	transition: background-color 0.3s linear;
+}
+
+#header_menu a:hover
+{
+	background: #1962A2;
+}
+
+.description
+{
+	width: 78%;
+	font-size: 13pt;
+	float: right;
+	margin-top: 10px;
+}
+
+.description p
+{
+	padding-bottom: 15px;
+}
+
+.description li
+{
+	padding-bottom: 7px;
+	margin-left: 16px;
+}
+
+/* Диалоговое окно (Затемнение) */
+
+#back_dialog
+{
+	position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    background: #000;
+	opacity: 0.7;
+    display: none;
+}
+
+/* Диалоговое окно (Подтверждение) */
+
+#dialog_box_confirm
+{
+	display: none;
+	position: fixed;
+	font-size: 11pt;
+	left: 0px;
+    top: 40px;
+	z-index: 110;
+}
+
+.dialog_box_confirm_title
+{
+	width: 350px;
+    height: 30px;
+	color: #fff;
+	font-size: 16pt;
+	font-weight: bold;
+	text-align: center;
+	background: #2b4e84;
+	float: right;
+}
+
+.dialog_box_confirm_content
+{
+	width: 355px;
+    height: 120px;
+	font-size: 13pt;
+	text-align: center;
+	background: #fff;
+}
+
+.dialog_box_confirm_right_line
+{
+	width: 5px;
+    height: 120px;
+	float: right;
+	background: #2b4e84;
+}
+
+.dialog_box_confirm_left_line
+{
+	width: 5px;
+    height: 120px;
+	float: left;
+	background: #2b4e84;
+}
+
+.dialog_box_confirm_footer button
+{
+	font-size: 11pt;
+	width: 125px;
+	height: 22px;
+	cursor: pointer;
+}
+
+.dialog_box_confirm_footer
+{
+	background: #2b4e84;
+	height: 32px;
+}
+
+#dialog_box_confirm_ok
+{
+	float: left;
+	margin: 5px 0 0 5px;
+}
+
+#dialog_box_confirm_cancel
+{
+	float: right;
+	margin: 5px 5px 0 0;
+}
+
+#main_table_message
+{
+	display: none;
+	position: fixed;
+	text-align: center;
+	font-size: 18pt;
+	margin-bottom: 5px;
+	background: #fff;
+	color: #000;
+	border-radius: 5px;
+	padding: 4px;
+	border: 3px solid #2b4e84;
+}
+
+/* Таблица */
+
+#table_wrapper
+{
+	text-align:center;
+	height: 100%;
+	margin-top: 10px;
+	margin: 10px auto;
+	display: table;
+}
+
+#main_table
+{
+	display: none;
+	font-size: 11pt;
+	border-spacing: 0px;
+	border-right: 2px solid #3e65a0;
+	border-bottom: 2px solid #3e65a0;
+	border-collapse: collapse;
+}
+
+#main_table tr
+{
+	display: table-row;
+}
+
+#main_table thead td
+{
+	height: 30px;
+}
+
+#main_table td
+{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	padding: 1px;
+	height: 30px;
+	min-width: 0px;
+	border-left: 2px solid #3e65a0;
+	border-top: 2px solid #3e65a0;
+}
+
+#main_table_title
+{
+	font-weight: bold;
+	font-size: 13pt;
+}
+
+#main_table_title img
+{
+	vertical-align: middle;
+	margin-right: 3px;
+	margin-bottom: 2px;
+}
+
+.main_pagination li
+{
+	display: inline;
+	box-shadow: inset 1px 1px 5px #F4F4F4;
+	font: 15px/20px Arial, Helvetica, sans-serif;
+}
+
+.main_pagination p
+{
+	padding: 1px 0 0 2px;
+	float: left;
+}
+
+.main_pagination a
+{
+	padding: 6px 10px 6px 10px;
+	border: 1px solid #ddd;
+	margin-right: -1px;
+	background: #FFFFFF;
+}
+
+.main_pagination a:hover
+{
+	cursor: pointer;
+}
+
+.main_pagination li a
+{
+	text-decoration:none;
+	color: #598deb;
+}
+
+.main_pagination li.active
+{
+	padding: 6px 10px 6px 10px;
+	border: 1px solid #ddd;
+	border-bottom: 2px solid #1962A2;
+	margin-right: -1px;
+	background: #F0F0F0; 
+	color: #333;
+}
+
+.main_pagination li.first
+{
+	border-radius: 5px 0px 0px 5px;
+	margin-left: 5px;
+}
+
+.main_pagination li.last
+{
+	border-radius: 0px 5px 5px 0px;
+	margin-right: 5px;
+}
+
+/* Форма выбора акадимического года */
+
+#academic_year_form
+{
+	display: block;
+	min-width: 230px;
+	max-width: 250px;
+	font-size: 13pt;
+	margin-bottom: 15px;
+	margin-left: 5px;
+	border: 2px solid #3e65a0;
+	border-radius: 5px;
+	float: left;
+}
+
+#academic_year_form p:first-child
+{
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background: #3e65a0;
+	color: #fff;
+	text-align: center;
+}
+
+#academic_year_form input
+{
+	width: 80%;
+	text-align: center;
+	height: 21px;
+	font-size: 11pt;
+}
+
+#academic_year_form input[type="submit"]
+{
+	width: 80%;
+	height: 24px;
+	margin: 10px 0 10px 25px;
+}
+
+#academic_year_form select
+{
+	width: 80%;
+	font-size: 12pt;
+	margin: 0 0 10px 25px;
+	height: 21px;
+}
+
+/* Классы форм академического года */
+
+.MM_academic_year_form
+{
+	height: 175px;
+}
+
+.FF_academic_year_form
+{
+	height: 100px;
+}
+
+/* Конпки удаления и редактирования записей в таблице */
+
+.table_button_edit, .table_button_delete
+{
+	width: 22px;
+	height: 22px;
+	border: 0;
+	outline: none;
+	margin: 0 1px 0 1px;
+}
+
+::-moz-focus-outer, ::-moz-focus-inner 
+{
+    border: 0;
+    padding: 0;
+}
+
+.table_button_edit img, .table_button_edit img
+{
+	width: 22px;
+	height: 22px;
+}
+
+.table_button_delete:hover, .table_button_edit:hover
+{
+	cursor: pointer;
+}
+
+/* Форма регистрации и титульного листа */
+
+#signup_form, #title_form
+{
+	margin-top: 10px;
+	margin-left: 50px;
+	margin-bottom: 15px;
+	font-size: 13pt;
+}
+
+#signup_form input, #title_form input
+{
+	margin-top: 5px;
+	width: 200px;
+	margin-bottom: 10px;
+	height: 18px;
+	font-size: 12pt;
+}
+
+#signup_form input[type="submit"], #title_form input[type="submit"]
+{
+	width: 180px;
+	height: 30px;
+}
+
+#signup_form select, #title_form select
+{
+	margin-top: 5px;
+	width: 800px;
+	font-size: 12pt;
+	margin-bottom: 10px;
+	height: 21px;
+}
+
+.error_message
+{
+	font-size: 12pt;
+	margin: 10px 0px;
+	padding: 10px 10px 10px 50px;
+	color: #D63301;
+	border: 1px solid red;
+	background-image: url('../images/error.png');
+	background-color: #FFCCBA;
+	background-repeat: no-repeat;
+	background-position: 10px center;
+}
+
+.success_message
+{
+	font-size: 12pt;
+	margin: 10px 0px;
+	padding: 10px 10px 10px 50px;
+	color: #4F8A10;
+	border: 1px solid green;
+	background-image: url('../images/success.png');
+	background-color: #DFF2BF;
+	background-repeat: no-repeat;
+	background-position: 10px center;
+}
+
+.error_input
+{
+	border: 2px solid #FF0000;
+}
+
+/* Форма добавления данных в таблицу (works/analysis) */
+
+#add_data_table_form
+{
+	display: block;
+	min-width: 230px;
+	max-width: 250px;
+	width: 18%;
+	border: 2px solid #3e65a0;
+	margin-left: 5px;
+	margin-bottom: 15px;
+	border-radius: 6px;
+	clear: both;
+	font-size: 13pt;
+}
+
+#add_data_table_form p:first-child
+{
+	text-align: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background: #3e65a0;
+	color: #fff;
+}
+
+#add_data_table_form span
+{
+	margin-left: 25px;
+}
+
+#add_data_table_form select
+{
+	width: 80%;
+	font-size: 12pt;
+	margin: 0 0 10px 25px;
+	height: 21px;
+}
+
+#add_data_table_form input[type="text"]
+{
+	width: 78%;
+	font-size: 12pt;
+	margin: 0 0 10px 25px;
+	height: 17px;
+}
+
+#add_data_table_form input
+{
+	width: 40px;
+	height: 21px;
+	font-size: 11pt;
+}
+
+#add_data_table_form button
+{
+	width: 80%;
+	height: 24px;
+	font-size: 11pt;
+	margin: 10px 0 10px 24px;
+}
+
+/* Форма редактирование данных и вставки в таблицу (Admin) */
+
+#edit_data_table_form, #admin_add_data_table_form
+{
+	display: block;
+	float: left;
+	margin: 10px 0 15px 50px;
+	font-size: 13pt;
+}
+
+#edit_data_table_form input, #admin_add_data_table_form input
+{
+	width: 500px;
+	margin: 5px 0 10px 0;
+	height: 18px;
+	font-size: 12pt;
+}
+
+#edit_data_table_form input[type="radio"]
+{
+	width: 30px;
+}
+
+#edit_data_table_form button, #admin_add_data_table_form button
+{
+	font-size: 12pt;
+	width: 150px;
+	height: 30px;
+	margin-right: 198px;
+}
+
+#edit_data_table_form select, #admin_add_data_table_form select
+{
+	width: 505px;
+	margin: 5px 0 10px 0;
+	height: 22px;
+	font-size: 12pt;
+}
+
+/* Форма Фильтрации */
+
+#filtration_form
+{
+	display: block;
+	min-width: 230px;
+	max-width: 250px;
+	font-size: 13pt;
+	width: 18%;
+	margin-bottom: 15px;
+	margin-left: 5px;
+	border: 2px solid #3e65a0;
+	border-radius: 5px;
+	padding-bottom: 5px;
+	clear: both;
+}
+
+#filtration_form p:first-child
+{
+	text-align: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background: #3e65a0;
+	color: #fff;
+}
+
+#filtration_form span
+{
+	margin-left: 25px;
+}
+
+#filtration_form select
+{
+	width: 80%;
+	font-size: 12pt;
+	margin: 0 0 10px 25px;
+	height: 21px;
+}
+
+#filtration_form input[type="text"]
+{
+	width: 78%;
+	font-size: 12pt;
+	margin: 0 0 10px 25px;
+	height: 17px;
+}
+
+#filtration_form input
+{
+	width: 40px;
+	height: 21px;
+	font-size: 11pt;
+}
+
+#filtration_form button
+{
+	height: 24px;
+	font-size: 11pt;
+	margin: 5px 0 5px 24px;
+}
+
+#filtration_form #filtration_form_submit
+{
+	width: 155px;
+}
+
+#filtration_form #filtration_form_reset
+{
+	width: 24px;
+	margin-left: 0px;
+	margin-right: 22px;
+	float: right;
+}
+
+/* Объединение div */
+
+.join_block_left_form
+{
+	display: block;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right: 5px;
+	float: left;
+	min-width: 230px;
+	max-width: 250px;
+}
+
+.small_form
+{
+	display: block;
+	min-width: 230px;
+	max-width: 250px;
+	width: 18%;
+	margin-left: 5px;
+	border: 2px solid #3e65a0;
+	border-radius: 5px;
+	float: left;
+	background: #fff;
+}
+
+.small_form input[type="submit"]
+{
+	width: 80%;
+	display: block;
+	height: 24px;
+	margin: 10px auto;
+	font-size: 11pt;
+}
+
+.small_form button
+{
+	width: 80%;
+	display: block;
+	height: 24px;
+	margin: 10px auto;
+	font-size: 11pt;
+	position: relative;
+}
+
+.small_form button span
+{
+	vertical-align: middle;
+}
+
+.small_form button img
+{
+	vertical-align: middle;
+	margin-right: 5px;
+}
+
+.admin_add_table_form_fixed
+{
+	min-width: 220px;
+	max-width: 250px;
+	margin: 0 0 5px 5px;
+	border: 2px solid #3e65a0;
+	border-radius: 5px;
+	position: fixed;
+	bottom: 0; 
+	left: 0;
+	background: #fff;
+	z-index: 2;
+}
+
+.admin_add_table_form_fixed input[type="submit"]
+{
+	width: 80%;
+	display: block;
+	height: 24px;
+	margin: 10px auto;
+	font-size: 11pt;
+}
+
+.admin_add_table_form_fixed span
+{
+	margin-left: 25px;
+}
+
+.admin_add_table_form_fixed select
+{
+	width: 80%;
+	display: block;
+	font-size: 12pt;
+	margin: 10px auto;
+	height: 21px;
+}
+
+#print_table_wrapper
+{
+	display: none;
+}
+
+.OMM_form
+{
+	min-width: 250px;
+	max-width: 340px;
+	float: left;
+	width: 20%;
+	min-height: auto;
+	max-height: 100%;
+	margin-top: 10px;
+	margin-left: 5px;
+	font: normal 13pt arial;
+}
+
+.OMM_form ul,.OMM_list ul
+{
+	list-style: none;
+}
+
+.OMM_form p
+{
+	font-size: 13pt;
+	min-height: 30px;
+	height: auto;
+	background: #3e65a0;
+	color: #fff;
+	text-align: center;
+	vertical-align: middle;
+	border: 1px solid #3e65a0;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+}
+
+.OMM_form li
+{
+	text-align: center;
+	border-bottom: 2px solid #3e65a0;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+.OMM_form a,.OMM_list a
+{
+	color: #000;
+}
+
+.OMM_form a:hover,.OMM_list a:hover
+{
+	color: #2b4e84;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.OMM_list
+{
+	margin: 10px auto;
+	width: 35%;
+	height: 100%;
+}
+
+.OMM_list p
+{
+	width: 100%;
+	font-size: 13pt;
+	height: auto;
+	background: #3e65a0;
+	color: #fff;
+	border: 1px solid #3e65a0;
+}
+
+.OMM_list p:first-child
+{
+	text-align: center;
+	font-size: 18pt;
+}
+
+.OMM_list li
+{
+	width: auto;
+	height: auto;
+	border-bottom: 2px solid #3e65a0;
+	text-align: center;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+#admin_menu
+{
+	width: 250px;
+	height: 575px;
+	margin-right: 5px;
+	float: left;
+	overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+#admin_menu img
+{
+	vertical-align: middle;
+	padding-right: 3px;
+	padding-bottom: 3px;
+}
+
+#admin_menu p
+{
+	font-size: 13pt;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	background: #3e65a0;
+	color: #fff;
+	text-align: center;
+	border-right: 2px solid #3e65a0;
+	border-bottom: 1px solid #fff;
+}
+
+#admin_menu ul
+{
+	list-style: none;
+}
+
+#admin_menu a
+{
+	display: block;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	color: #000;
+	transition: background-color 0.3s linear;
+	border-bottom: 2px solid #3e65a0;
+	border-right: 2px solid #3e65a0;
+}
+
+#admin_menu a:hover
+{
+	border-bottom: 2px solid #3e65a0;
+	border-right: 2px solid #3e65a0;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	color: #fff;
+	background: #1962A2;
+	cursor: pointer;
+}
+
+#admin_menu > ul > li
+{
+	text-align: center;
+}
+
+#admin_menu li.admin_submenu li
+{
+	text-align: center;
+}
+
+#admin_menu li.admin_submenu ul
+{
+	display: none;
+}
+
+#admin_menu li.admin_submenu a.active
+{
+	text-align: center;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	color: #fff;
+	border-bottom: 2px solid #3e65a0;
+	border-right: 2px solid #3e65a0;
+	background: #3e65a0;
+}
+
+#footer
+{
+	background: #2b4e84;
+	color: #fff;
+	display: table-row;
+	height: 60px;
+	width: 100%;
+}
+
+#footer>p
+{
+	text-align: center;
+	margin-top: 24px;
+}
+
+.datepicker { border-collapse: collapse; border: 2px solid #3e65a0; position: absolute; z-index:1000}
+.datepicker tr.controls th { height: 22px; font-size: 11px; }
+.datepicker select { font-size: 11px; }
+.datepicker tr.days th { height: 18px; }
+.datepicker tfoot td { height: 18px; text-align: center; text-transform: capitalize; }
+.datepicker th, .datepicker tfoot td { background: #eee; font: 10px/18px Verdana, Arial, Helvetica, sans-serif; }
+.datepicker th span, .datepicker tfoot td span { font-weight: bold; }
+
+.datepicker tbody td { width: 24px; height: 24px; border: 1px solid #3e65a0; font: 11px/22px Arial, Helvetica, sans-serif; text-align: center; background: #fff; }
+.datepicker tbody td.date { cursor: pointer; }
+.datepicker tbody td.date.over { color: #fff; background-color: #1962A2; }
+.datepicker tbody td.date.chosen { color: #fff; font-weight: bold; background-color: #3e65a0; }
+
+@media (max-width: 1170px) {
+
+.OMM_form
+{
+	float: none;
+	margin: 10px auto;
+	min-width: 330px;
+}
+
+.description
+{
+	width: 100%;
+	font-size: 13pt;
+	float: none;
+}
+
+.logo 
+{
+	display: block;
+	float: none;
+	margin: 10px auto;
+}
+
+}
+
+@media (max-width: 970px) {
+#header_menu a
+{
+	text-align: center;
+}
+
+#signup_form select, #title_form select
+{
+	width: 400px;
+}
+
+}
+
+@media (max-width: 750px) {
+#signup_form select, #title_form select
+{
+	width: 205px;
+}
+
+
+}
